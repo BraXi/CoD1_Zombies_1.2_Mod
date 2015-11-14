@@ -1,0 +1,836 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_MENUWINDOW			96 72
+#define ORIGIN_SERVERNAME			106 92
+#define ORIGIN_GAMETYPE				430 156
+#define ORIGIN_SERVERSETTINGS			480 178
+#define ORIGIN_CLICKTOCONTINUE			534 374
+
+{
+	menuDef
+	{
+		name			"weapon_american"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor		0 0 0 0
+		style			WINDOW_STYLE_EMPTY
+		border			0
+		onEsc 
+		{
+			scriptMenuResponse "close";
+			close weapon_american;
+		}
+		onOpen 
+		{
+			scriptMenuResponse "open";
+			hide "m1carbine_info";
+			hide "m1garand_info";
+			hide "thompson_info";
+			hide "bar_info";
+			hide "springfield_info";
+			hide "mainmenu";
+			hide "changeteam";
+			hide "weapon";
+			hide "map";
+			hide "weap1";
+			hide "weap2";
+			hide "weap3";
+		}
+		onClose
+		{
+			scriptMenuResponse "close";
+
+			hide "m1carbine_info";
+			hide "m1garand_info";
+			hide "thompson_info";
+			hide "bar_info";
+			hide "springfield_info";
+			hide "mainmenu";
+			hide "changeteam";
+			hide "weapon";
+			hide "map";
+			hide "weap1";
+			hide "weap2";
+			hide "weap3";
+		}
+
+// WINDOW
+		itemDef 
+		{
+			name "video"
+			style WINDOW_STYLE_CINEMATIC
+			cinematic "zombie_mod_menus.roq"
+			rect -1 -1 642 482
+			backcolor 1 1 1 .25
+			border 1
+			bordersize 1	
+			bordercolor .1 .1 .1 1
+			decoration
+			visible 1
+		}
+
+// HEADER
+		itemDef 
+		{
+			rect 60 75 520 20
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			320 90
+			forecolor		1 1 1 1
+			text			"^2SELECT WEAPON"
+			textfont		UI_FONT_NORMAL
+			textalign		ITEM_ALIGN_CENTER
+			textscale		.24
+			decoration
+		}
+		
+
+// MENU CHOICES
+		itemDef
+		{
+			visible 		1
+			origin			21 129
+			forecolor		1 1 1 1
+			text			"^3WEAPONS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 130 180 95
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 135
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"1. M1 Carbine"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			cvartest		"ui_allow_m1carbine"
+			hideCvar		{ "0" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "m1carbine_mp";
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				show "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+				hide "weap1";
+				hide "weap2";
+				hide "weap3";
+			}
+		}
+		execKey "1" { play "mouse_click"; scriptMenuResponse "m1carbine_mp"; close weapon_american }	
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 150
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"2. M1 Garand"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			cvartest		"ui_allow_m1garand"
+			hideCvar		{ "0" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "m1garand_mp";
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				show "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+				hide "weap1";
+				hide "weap2";
+				hide "weap3";
+			}
+		}
+		execKey "2" { play "mouse_click"; scriptMenuResponse "m1garand_mp"; close weapon_american }	
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 165
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"3. Thompson"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			cvartest		"ui_allow_thompson"
+			hideCvar		{ "0" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "thompson_mp";
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				show "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+				hide "weap1";
+				hide "weap2";
+				hide "weap3";
+			}
+		}
+		execKey "3" { play "mouse_click"; scriptMenuResponse "thompson_mp"; close weapon_american; }
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 180
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"4. Bar"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			cvartest		"ui_allow_bar"
+			hideCvar		{ "0" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "bar_mp";
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				show "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+				hide "weap1";
+				hide "weap2";
+				hide "weap3";
+			}
+		}
+		execKey "4" { play "mouse_click"; scriptMenuResponse "bar_mp"; close weapon_american; }
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 195
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"5. Springfield"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			cvartest		"ui_allow_springfield"
+			hideCvar		{ "0" }
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "springfield_mp";
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				show "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+				hide "weap1";
+				hide "weap2";
+				hide "weap3";
+			}
+		}
+		execKey "5" { play "mouse_click"; scriptMenuResponse "springfield_mp"; close weapon_american; }
+
+// DESCRIPTION
+		itemDef
+		{
+			visible 		1
+			origin			618 239
+			forecolor		1 1 1 1
+			text			"^3DESCRIPTION"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 380 240 240 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"m1carbine_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPMENU_THE_M1A1_CARBINE_IS_A"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"m1garand_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPMENU_THE_M1_GARAND_IS_A_POWERFUL"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"thompson_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPMENU_THE_THOMPSON_IS_DEADLY"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"bar_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPMENU_THE_BROWNING_AUTOMATIC"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"springfield_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"@MPMENU_THIS_IS_A_SNIPER_RIFLE"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+
+// OTHER MENUS
+		itemDef
+		{
+			visible 		1
+			origin			21 239
+			forecolor		1 1 1 1
+			text			"^3OTHER MENUS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 240 180 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+	
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 245
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> Main Menu"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				open main;
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				show "mainmenu";
+				hide "changeteam";
+				hide "map";
+				hide "weap1";
+				hide "weapon";
+				hide "weap2";
+				hide "weap3";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 260
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> Change Team"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "team";
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "weap1";
+				hide "weap2";
+				hide "weapon";
+				hide "weap3";
+				show "changeteam";
+				hide "map";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 275
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> View map"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "viewmap";
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "weap1";
+				hide "weapon";
+				hide "weap2";
+				hide "weap3";
+				show "map";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 290
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2-> German weapons"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				open weapon_german;
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "map";
+				hide "weapon";
+				show "weap1";
+				hide "weap2";
+				hide "weap3";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 305
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2-> Russian weapons"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				open weapon_russian;
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "map";
+				hide "weapon";
+				hide "weap1";
+				show "weap2";
+				hide "weap3";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 320
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2-> British weapons"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				open weapon_british;
+				close weapon_american;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "m1carbine_info";
+				hide "m1garand_info";
+				hide "thompson_info";
+				hide "bar_info";
+				hide "springfield_info";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "map";
+				hide "weapon";
+				hide "weap1";
+				hide "weap2";
+				show "weap3";
+			}
+		}
+
+		itemDef
+		{
+			name			"mainmenu"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Return to the main menu."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"changeteam"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Change team."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"map"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2View current map image."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"weap1"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Go to German weapons."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"weap2"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Go to Russian weapons."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"weap3"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Go to British weapons."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+// WEAPON IMAGE
+		itemDef
+		{
+			name			"weapon"
+			visible 		1
+			origin			618 129
+			forecolor		1 1 1 1
+			text			"^3WEAPON PREVIEW"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			name			"weapon"
+			rect 380 130 240 95
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"m1carbine_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"ui_mp/assets/hud@m1carbine.tga"
+			decoration
+		}
+		itemDef
+		{
+			name			"m1garand_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"ui_mp/assets/hud@m1garand.tga"
+			decoration
+		}
+		itemDef
+		{
+			name			"thompson_info"
+			visible 		0
+			rect			380 130 240 110
+	 		style			WINDOW_STYLE_SHADER
+			background		"ui_mp/assets/hud@thompson.tga"
+			decoration
+		}
+		itemDef
+		{
+			name			"bar_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"ui_mp/assets/hud@bar.tga"
+			decoration
+		}
+		itemDef
+		{
+			name			"springfield_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"ui_mp/assets/hud@springfield.tga"
+			decoration
+		}
+	}
+}

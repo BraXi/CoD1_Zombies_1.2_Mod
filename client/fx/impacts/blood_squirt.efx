@@ -1,0 +1,144 @@
+Particle
+{
+	name				blood_line
+
+	flags				usePhysics impactKills useAlpha impactFX
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				10
+
+	life				300 600
+
+	delay				0 500
+
+	velocity			375 -1 -1 280 1 1
+
+	acceleration		-200 0 0
+
+	gravity			-500
+
+	rgb
+	{
+		start			0.302 0.102 0.102
+		end				0.502 0 0
+	}
+
+	alpha
+	{
+		start			0.5
+		end				0
+		parm			40 60
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		gfx/impact/flesh_hit2
+	]
+
+	impactfx
+	[
+		fx/impacts/bloodfx	
+	]
+}
+
+Particle
+{
+	name				emmits_effect
+
+	flags				usePhysics impactKills impactFx useAlpha
+
+	life				900
+
+	velocity			175 0 0
+
+	acceleration		-100 0 0
+
+	gravity				-200
+
+	rgb
+	{
+		start			0.8235 0 0 0.3922 0 0
+		end				0.8353 0 0 0.502 0 0
+	}
+
+	alpha
+	{
+		start			0.5
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1 2
+		end				0.5
+	}
+
+	shaders
+	[
+		gfx/impact/blood_splat
+		gfx/impact/blood_splat3
+	]
+
+	impactfx
+	[
+		fx/impacts/bloodfx_lg	
+	]
+}
+
+Tail
+{
+	flags				usePhysics impactKills useAlpha impactFX
+
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				16
+
+	life				500 900
+
+	delay				0 200
+
+	velocity			175 -1 -1 180 1 1
+
+	acceleration		-100 0 0
+
+	gravity				-400
+
+	rgb
+	{
+		start			0.5333 0.08235 0.08235 0.3725 0.06275 0.06275
+	}
+
+	alpha
+	{
+		start			0.6
+		end				0
+		parm			30
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			0.5 0.6
+		end				1.5 1
+	}
+
+	length
+	{
+		start			2
+		end				.5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/blood_plume
+	]
+
+	impactfx
+	[
+		fx/impacts/bloodfx_lg	
+	]
+}

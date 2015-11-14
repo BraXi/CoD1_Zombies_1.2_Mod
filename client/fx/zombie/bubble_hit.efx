@@ -1,0 +1,9 @@
+FxRunner
+{
+	count				3
+
+	playfx
+	[
+		fx/misc/radio_spark
+	]
+}

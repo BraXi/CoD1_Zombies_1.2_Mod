@@ -1,0 +1,155 @@
+Particle
+{
+	spawnFlags			orgOnCylinder axisFromSphere
+
+	count				3
+
+	life				200 300
+
+	origin				7 8 0 3 -16 0
+
+	radius				4 1
+
+	height				30 10
+
+	rotation			360 -360
+
+	rotationDelta		3 -3
+
+	velocity			60 0 0 50 0 0
+
+	rgb
+	{
+		start			0.7 0 0
+	}
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10
+		end				60 70
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/explosion1
+		gfx/effects/explosion1b
+	]
+}
+
+Particle
+{
+	name				smoke
+
+	flags				useAlpha
+
+	spawnFlags			orgOnCylinder evenDistribution
+
+	count				10
+
+	life				1900 1700
+
+	origin				5 12 0 75 -24 0
+
+	radius				10 30
+
+	rotation			360 -360
+
+	rotationDelta		7
+
+	velocity			32 0 0 128 0 0
+
+	rgb
+	{
+		start			0 0.6 0
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10
+		end				100 50
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/pjsmoke
+		gfx/effects/whitesmoke
+	]
+}
+
+Light
+{
+	life				600
+
+	origin				0 0 2
+
+	rgb
+	{
+		start			0 0.8 0
+	}
+
+	size
+	{
+		start			800
+		end				200
+		flags			linear
+	}
+}
+
+Particle
+{
+	name				Copy of smoke
+
+	flags				useAlpha
+
+	spawnFlags			absoluteVel orgOnCylinder axisFromSphere evenDistribution
+
+	count				5
+
+	life				900 700
+
+	origin				5 12 0 75 -24 0
+
+	radius				10 30
+
+	rotation			360 -360
+
+	rotationDelta		7
+
+	velocity			-32 0 0 128 0 0
+
+	rgb
+	{
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10
+		end				100 50
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/pjsmoke
+	]
+}

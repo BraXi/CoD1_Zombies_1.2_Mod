@@ -1,0 +1,79 @@
+		itemDef 
+		{
+			name main_back
+			style WINDOW_STYLE_SHADER
+			rect 0 0 640 480
+			background "ui_mp/assets/bxmenu@bg.dds"
+			visible 1
+			decoration
+		}
+
+		itemDef 
+		{
+			style WINDOW_STYLE_SHADER
+			rect 0 0 640 40
+			background "black"
+			visible 1
+			decoration
+		}
+
+		itemDef 
+		{
+			style WINDOW_STYLE_SHADER
+			rect 0 440 640 40
+			background "black"
+			visible 1
+			decoration
+		}
+
+		itemDef 
+		{
+			name main_logo
+			style WINDOW_STYLE_SHADER
+			//rect 64 -32 512 512
+			rect 0 -80 640 640
+			background "ui_mp/assets/zombie_mod.dds"
+			visible 1
+			decoration
+		}
+		itemDef
+		{
+			name mod_author
+			type 1
+			rect 630 470 0 0
+			visible 1
+			text "^1Zombie Mod^7 by ^2BraX"
+			decoration
+			textscale .3
+			textalign ITEM_ALIGN_RIGHT
+			textalignx 0
+			textaligny 0
+		}
+
+/*
+		itemDef
+		{
+			type 1
+			rect 10 15 0 0
+			visible 1
+			text "^1Xfire ^7: ^2maciusiak"
+			decoration
+			textscale .26
+			textalign ITEM_ALIGN_LEFT
+			textalignx 0
+			textaligny 0
+		}
+
+		itemDef
+		{
+			type 1
+			rect 10 30 0 0
+			visible 1
+			text "^1Website ^7: ^2www.BraX-Site.pl"
+			decoration
+			textscale .26
+			textalign ITEM_ALIGN_LEFT
+			textalignx 0
+			textaligny 0
+		}
+*/

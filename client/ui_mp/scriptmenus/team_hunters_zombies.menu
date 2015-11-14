@@ -1,0 +1,433 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_MENUWINDOW			96 72
+#define ORIGIN_SERVERNAME			106 92
+#define ORIGIN_GAMETYPE				430 156
+#define ORIGIN_SERVERSETTINGS			480 178
+#define ORIGIN_CLICKTOCONTINUE			534 374
+
+{
+	menuDef
+	{
+		name			"team_hunters_zombies"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor		0 0 0 0
+		style			WINDOW_STYLE_EMPTY
+		border			0
+		onEsc 
+		{
+			scriptMenuResponse "close";
+			close team_hunters_zombies;
+		}
+		onOpen 
+		{
+			scriptMenuResponse "open";
+
+			hide "auto_assign";
+			hide "spectator";
+			hide "credits";
+			hide "mainmenu";
+			hide "changeteam";
+			hide "weapon";
+			hide "map";
+		}
+		onClose
+		{
+			scriptMenuResponse "close";
+		}
+
+// WINDOW
+		itemDef 
+		{
+			name "video"
+			style WINDOW_STYLE_CINEMATIC
+			cinematic "zombie_mod_menus.roq"
+			rect -1 -1 642 482
+			backcolor 1 1 1 .25
+			border 1
+			bordersize 1	
+			bordercolor .1 .1 .1 1
+			decoration
+			visible 1
+		}
+
+// HEADER
+		itemDef 
+		{
+			rect 60 75 520 20
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			320 90
+			forecolor		1 1 1 1
+			text			"^2CHOOSE TEAM OR DISPLAY CREDITS"
+			textfont		UI_FONT_NORMAL
+			textalign		ITEM_ALIGN_CENTER
+			textscale		.24
+			decoration
+		}
+		
+
+// DESCRIPTION
+		itemDef
+		{
+			visible 		1
+			origin			618 239
+			forecolor		1 1 1 1
+			text			"^3DESCRIPTION"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 380 240 240 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"auto_assign"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2This will automatically assign You to ^1The Zombies^7 or to ^2The Hunters"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"spectator"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2C'mon! Only a coward sits and spectate!"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"credits"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Display who made this mod."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+// MENU CHOICES
+		itemDef
+		{
+			visible 		1
+			origin			21 129
+			forecolor		1 1 1 1
+			text			"^3CHOICES"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 130 180 80
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 20
+			origin			40 140
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"1. Auto-assign"
+			textfont		UI_FONT_NORMAL
+			textscale		.3
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "autoassign";
+				close team_hunters_zombies;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				//hide "auto_assign";
+				hide "spectator";
+				hide "credits";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "weapon";
+				hide "map";
+				show "auto_assign";
+			}
+		}
+		execKey "1" { play "mouse_click"; scriptMenuResponse "autoassign"; close team_hunters_zombies }	
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 20
+			origin			40 160
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"2. Spectate"
+			textfont		UI_FONT_NORMAL
+			textscale		.3
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "spectator";
+				close team_hunters_zombies;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "auto_assign";
+				//hide "spectator";
+				hide "credits";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "weapon";
+				hide "map";
+				show "spectator";
+			}
+		}
+		execKey "2" { play "mouse_click"; scriptMenuResponse "spectator"; close team_hunters_zombies }	
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 20
+			origin			40 180
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"3. Credits"
+			textfont		UI_FONT_NORMAL
+			textscale		.3
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				open credits;
+				close team_hunters_zombies;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "auto_assign";
+				hide "spectator";
+				//hide "credits";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "weapon";
+				hide "map";
+				show "credits";
+			}
+		}
+		execKey "3" { play "mouse_click"; close team_hunters_zombies; open mod_credits }
+
+// OTHER MENUS
+		itemDef
+		{
+			visible 		1
+			origin			21 239
+			forecolor		1 1 1 1
+			text			"^3OTHER MENUS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 240 180 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+	
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 250
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> Main Menu"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				open main;
+				close team_hunters_zombies;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "auto_assign";
+				hide "spectator";
+				hide "credits";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "weapon";
+				hide "map";
+				show "mainmenu";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 265
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> View map"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "viewmap";
+				close team_hunters_zombies;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "auto_assign";
+				hide "spectator";
+				hide "credits";
+				hide "mainmenu";
+				hide "changeteam";
+				hide "weapon";
+				hide "map";
+				show "map";
+			}
+		}
+
+		itemDef
+		{
+			name			"mainmenu"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Return to the main menu."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"changeteam"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Change team."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"weapon"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Select spawn weapon."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"map"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2View current map image."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+	}
+}

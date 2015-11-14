@@ -1,0 +1,340 @@
+//This script is from KiLL3R's Zombie Mod UO
+//Credits goes to KiLL3R. Edited a bit by BraX.
+
+
+Particle
+{
+	name				smoke_blast
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				3 4
+
+	life				250 550
+
+	delay				15
+
+	cullrange			6000
+
+	origin				0 0 0 7 0 0
+
+	rotation			0 360
+
+	rotationDelta		-15 15
+
+	velocity			151 -24 -24 375 24 24
+
+	gravity				-400 -100
+
+	rgb
+	{
+		start			0 0 1
+		end				0 0 0.5
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.25 1
+		end				0
+		parm			0.15 0.25
+		flags			linear
+	}
+
+	size
+	{
+		start			7
+		end				45 55
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/dark_smoke
+	]
+}
+
+OrientedParticle
+{
+	name				smoke_blast
+
+	flags				useAlpha
+
+	count				2 4
+
+	life				150 250
+
+	delay				15 30
+
+	cullrange			6000
+
+	origin				0 0 1
+
+	rotation			0 360
+
+//	rotationDelta		-15 15
+
+//	velocity			151 -24 -24 375 24 24
+
+//	gravity				-400 -100
+
+	rgb
+	{
+		start			0.6 1 1
+	}
+
+	alpha
+	{
+		start			1
+		end				0
+		parm			0.15 0.25
+		flags			linear
+	}
+
+	size
+	{
+		start			7
+		end			45 55
+		flags			linear
+	}
+
+	shaders
+	[
+		impact/plasma
+		plasma_ball1
+		plasma_ball2
+	]
+}
+
+Decal
+{
+	name				impact_mark
+
+	life				30000
+
+	cullrange			1200
+
+	rotation			0 360
+
+	rgb
+	{
+		start			0.6 1 1
+	}
+
+	size
+	{
+		start			10 15
+	}
+
+	shaders
+	[
+		impact/plasma
+	]
+}
+
+Particle
+{
+	name				dust_fall
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				1 2
+
+	life				500 1500
+
+	delay				0 250
+
+	cullrange			800
+
+	rotation			-5 5
+
+	rotationDelta		-2 2
+
+	velocity			0 0 0 30 0 0
+
+	gravity				0 -100
+
+	rgb
+	{
+		start			0 0 1
+		end				0 0 0.5
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.25 0.5
+		end				0
+		parm			0.25 0.5
+		flags			linear
+	}
+
+	size
+	{
+		start			0 5
+		end				20 90
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/dark_smoke
+	]
+}
+
+Particle
+{
+	name				debree_gib
+
+	flags				usePhysics useAlpha
+
+	count				1 5
+
+	life				250 1500
+
+	cullrange			800
+
+	bounce				0.25 0.5
+
+	rotation			0 360
+
+	rotationDelta		-25 25
+
+	velocity			50 -50 -50 300 50 50
+
+	gravity				-600 -400
+
+	size
+	{
+		start			0.5 2.25
+		end				0
+		parm			90 95
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		plasma_ball1
+		plasma_ball2
+	]
+}
+
+Tail
+{
+	name				dirt_eject_spray
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				2 3
+
+	life				250 350
+
+	delay				0 5
+
+	cullrange			2000
+
+	velocity			400 -50 -50 450 50 50
+
+	gravity				-100 -400
+
+	rgb
+	{
+		start			0 0 1
+		end				0 0 0.5
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.25 0.75
+		end				0
+		parm			0.1 0.15
+		flags			linear
+	}
+
+	size
+	{
+		start			0
+		end				15 35
+		flags			linear
+	}
+
+	length
+	{
+		start			20
+		end				80
+		flags			linear
+	}
+
+	shaders
+	[
+		plasma_ball1
+		plasma_ball2
+	]
+}
+
+Particle
+{
+	name				smoke_blast_base
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				1 2
+
+	life				250 550
+
+	delay				25
+
+	cullrange			1000
+
+	rotation			0 360
+
+	rotationDelta		-15 15
+
+	velocity			151 -24 -24 175 24 24
+
+	gravity				-400 -200
+
+	rgb
+	{
+		start			0 0 1
+		end				0 0 0.5
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			0.15 0.25
+		flags			linear
+	}
+
+	size
+	{
+		start			7
+		end				25 35
+		flags			linear
+	}
+
+	shaders
+	[
+		plasma_ball1
+		plasma_ball2
+	]
+}
+
+sound
+{
+	sounds
+	[
+		plasma_impact
+	]
+}

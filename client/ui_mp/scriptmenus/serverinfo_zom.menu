@@ -1,0 +1,329 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_MENUWINDOW			96 72
+#define ORIGIN_SERVERNAME			106 92
+#define ORIGIN_GAMETYPE				430 156
+#define ORIGIN_SERVERSETTINGS			480 178
+#define ORIGIN_CLICKTOCONTINUE			534 374
+
+{
+	menuDef
+	{
+		name			"serverinfo_zom"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor		0 0 0 0
+		style			WINDOW_STYLE_EMPTY
+		border			0
+		onEsc 
+		{
+			scriptMenuResponse "close";
+			close serverinfo_zom;
+		}
+		onOpen 
+		{
+			scriptMenuResponse "open";
+		}
+		onClose
+		{
+			scriptMenuResponse "close";
+		}
+
+// VIDEO
+		itemDef 
+		{
+			name "video"
+			style WINDOW_STYLE_CINEMATIC
+			cinematic "zombie_mod_menus.roq"
+			rect -1 -1 642 482
+			backcolor 1 1 1 .25
+			border 1
+			bordersize 1	
+			bordercolor .1 .1 .1 1
+			decoration
+			visible 1
+		}
+
+// WINDOW
+		itemDef 
+		{
+			rect 20 130 240 220
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+// SERVER NAME
+		itemDef 
+		{
+			rect 60 75 520 20
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"text_servername"
+			visible			1
+			origin			320 90
+			forecolor		1 1 1 1
+			cvar			"ui_hostname"
+			textfont		UI_FONT_NORMAL
+			textalign		ITEM_ALIGN_CENTER
+			textscale		.24
+			decoration
+		}
+		
+
+// MESSAGE OF THE DAY
+		itemDef
+		{
+			visible 		1
+			origin			618 239
+			forecolor		1 1 1 1
+			text			"^3MESSAGE OF THE DAY"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 380 240 240 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"text_motd"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			//cvar			"ui_motd"
+			text			"Welcome stranger! BraX is really awesome guy, you are playing his mod. Have fun and good luck!"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+// SERVER SETTINGS
+		itemDef
+		{
+			visible			1
+			origin			30 150
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_NUMERICFIELD
+			text			"Time Limit (minutes):"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_zom_timelimit"
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 165
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_NUMERICFIELD
+			text			"Ready-Up Time (seconds):"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_warmuptime"
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 190
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_MULTI
+			text			"Last Man Standing:"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_lastman"
+			cvarFloatList	{ "^1Disabled" 0 "^2Last Hunter" 1 "^2Best Hunter" 2 }
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 205
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_MULTI
+			text			"Super Zombie At Start:"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_szombie"
+			cvarFloatList	{ "^1Disabled" 0 "^2Enabled" 1 }
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 225
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_MULTI
+			text			"Next Map Vote:"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_votemap"
+			cvarFloatList	{ "^1Disabled" 0 "^2Enabled" 1 }
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 245
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_NUMERICFIELD
+			text			"Hunter's Health:^2"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_hhealth"
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 260
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_NUMERICFIELD
+			text			"Zombie's Health:^2"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_zhealth"
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 280
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_MULTI
+			text			"Mystery Box:"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_mysterybox"
+			cvarFloatList	{ "^1Disabled" 0 "^2Enabled" 1 }
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 295
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_MULTI
+			text			"Searchable Bodies:"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_sbodies"
+			cvarFloatList	{ "^1Disabled" 0 "^2Enabled" 1 }
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 315
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_MULTI
+			text			"Dark Sky:"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_darksky"
+			cvarFloatList	{ "^1Disabled" 0 "^2Enabled" 1 }
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			30 330
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_NUMERICFIELD
+			text			"Money Packs At Start:"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalign		ITEM_ALIGN_LEFT
+			cvar			"ui_packs"
+			decoration
+		}
+
+// CLICK TO CONTINUE
+		itemDef
+		{
+			visible 		1
+			rect			0 0 640 480
+			type 			ITEM_TYPE_BUTTON
+			action
+			{
+				scriptMenuResponse "close";
+				close serverinfo_zom;
+			}
+		}
+		
+
+		itemDef 
+		{
+			rect 240 383 160 20
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			visible 		1
+			origin			320 400
+			forecolor		1 1 1 1
+			text			"CLICK TO CONTINUE"
+			textfont		UI_FONT_NORMAL
+			textscale		.29
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+	}
+}

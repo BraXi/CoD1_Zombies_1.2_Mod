@@ -1,0 +1,89 @@
+{
+	map			"mp_bocage"
+	longname	"mp_bocage"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_brecourt"
+	longname	"mp_brecourt"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_carentan"
+	longname	"mp_carentan"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_chateau"
+	longname	"mp_chateau"
+	gametype	"dm tdm re bel hq zom"
+}
+
+{
+	map			"mp_dawnville"
+	longname	"mp_dawnville"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_depot"
+	longname	"mp_depot"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_harbor"
+	longname	"mp_harbor"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_hurtgen"
+	longname	"mp_hurtgen"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_neuville"
+	longname	"mp_neuville"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_pavlov"
+	longname	"mp_pavlov"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_powcamp"
+	longname	"mp_powcamp"
+	gametype	"dm tdm re sd bel hq zom"
+}
+
+{
+	map			"mp_railyard"
+	longname	"mp_railyard"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_rocket"
+	longname	"mp_rocket"
+	gametype	"dm tdm sd re bel hq zom"
+}
+
+{
+	map			"mp_ship"
+	longname	"mp_ship"
+	gametype	"dm tdm re bel hq zom"
+}
+
+{
+	map			"mp_stalingrad"
+	longname	"mp_stalingrad"
+	gametype	"dm tdm sd re bel hq zom"
+}

@@ -1,0 +1,121 @@
+Particle
+{
+	flags				useAlpha
+
+	life				600
+
+	origin				12 0 0	//ZYX lol
+
+	rotation			360 -360
+
+	rotationDelta			2 -2
+
+	rgb
+	{
+		start			1 1 1
+		end			0 0 0 //0.9765 0.949 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		end			0
+		flags			linear
+	}
+
+	size
+	{
+		start			48 48
+		end			64 64
+		flags			linear
+	}
+
+	shaders
+	[
+		//gfx/effects/explosion/explosion_1
+		rocket2
+	]
+}
+
+
+Particle
+{
+	flags				useAlpha
+
+	life				400
+
+	origin				8 0 0	//ZYX lol
+
+	rotation			360 -360
+
+	rotationDelta			2 -2
+
+	rgb
+	{
+		start			0.6 0.6 0.6
+		end			0.1 0.1 0.1 //0.9765 0.949 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		end			0
+		flags			linear
+	}
+
+	size
+	{
+		start			32 32
+		end			48 48
+		flags			linear
+	}
+
+	shaders
+	[
+		rocket1
+	]
+}
+
+
+Decal
+{
+	life				4e+004
+
+	rotation			360 -360
+
+	size
+	{
+		start			48 48
+	}
+
+	shaders
+	[
+		gfx/impact/cratered
+	]
+}
+
+
+Light
+{
+	life				300
+
+	rgb
+	{
+		end			0.9765 0.949 0.651
+		flags			linear
+	}
+
+	size
+	{
+		start			400
+		flags			linear
+	}
+}
+
+Sound
+{
+	sounds
+	[
+		quake_explode
+	]
+}

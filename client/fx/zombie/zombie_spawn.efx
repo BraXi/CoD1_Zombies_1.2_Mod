@@ -1,0 +1,169 @@
+OrientedParticle
+{
+	name				smokeblast
+
+	flags				deathFx useAlpha
+
+	spawnFlags			cheapOrgCalc orgOnCylinder axisFromSphere evenDistribution
+
+	life				200
+
+	height				128
+
+	rotation			13 -26
+
+	rotationDelta		40 -80
+
+	velocity			0 0 400 0 0 200
+
+	acceleration		300 200 700 120 -350 400
+
+	gravity				-300 -400
+
+	rgb
+	{
+		start			0.8392 0.8118 0.6627
+		end				0.03529 0.02745 0.02353
+		flags			linear clamp
+	}
+
+	alpha
+	{
+		start			0.8
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1 10
+		end				50 80
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/dark_smoke
+	]
+
+	deathfx
+	[
+		fx/smoke/whitesmoke
+	]
+}
+
+Particle
+{
+	name				ground
+
+	flags				useAlpha
+
+	nonUniformScale		1
+
+	life				500
+
+	delay				100
+
+	rotation			3 -3
+
+	gravity				400
+
+	rgb
+	{
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		end				40 50
+		flags			linear
+	}
+
+	size2
+	{
+		start			25
+		end				50 60
+		flags			linear
+	}
+
+	length
+	{
+		end				20 50
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/groundblast1
+	]
+}
+
+OrientedParticle
+{
+	name				Copy of smokey
+
+	flags				deathFx useAlpha
+
+	spawnFlags			cheapOrgCalc orgOnCylinder axisFromSphere evenDistribution rgbComponentInterpolation
+
+	count				3
+
+	life				200 100
+
+	height				10
+
+	rotation			13 -26
+
+	rotationDelta		40 -80
+
+	velocity			0 0 400 0 0 200
+
+	acceleration		300 200 700 120 -350 400
+
+	gravity				-300 -400
+
+	rgb
+	{
+		start			0.8392 0.8118 0.6627
+		end				0.8392 0.8118 0.6627 0.9765 0.949 0.651
+		flags			linear clamp
+	}
+
+	alpha
+	{
+		start			0.8
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1 10
+		end				400 453
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/dark_smoke
+	]
+
+	deathfx
+	[
+		fx/smoke/whitesmoke
+	]
+}
+
+sound
+{
+	sounds
+	[
+		zombie_spawn
+	]
+}

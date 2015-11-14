@@ -1,0 +1,112 @@
+
+Particle
+{
+	flags				useAlpha
+
+	count				1 2
+
+	life				100
+
+	cullrange			300
+
+	rotation			0 360
+
+	rotationDelta		12 -22
+
+	rgb
+	{
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.4 0.5
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10
+		end				60 32
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/impact/dustlayer1
+	]
+}
+
+Decal
+{
+	//flags				useModel
+
+	life				1e+004
+
+	cullrange			1300
+
+	rotation			-360 360
+
+	rgb
+	{
+		start			0.5647 0.5647 0.5647
+	}
+
+	size
+	{
+		start			16
+	}
+
+	shaders
+	[
+		gfx/impact/bullethole2
+	]
+
+
+
+}
+
+
+Emitter
+{
+	flags				useModel useAlpha
+	
+	count				1 
+
+	life				1000
+
+	alpha
+	{
+		start			0
+		end			0
+		flags			linear
+	}	
+
+	rgb
+	{
+		start			0 0 0
+	}
+
+	size
+	{
+		start			0.9
+		end			0.76
+		flags			linear
+	}
+
+	models
+	[
+ 		xmodel/railgun_impact
+		
+	]
+
+}
+
+sound
+{
+	sounds
+	[
+		plasma_impact
+	]
+}

@@ -1,0 +1,22 @@
+//This script is from KiLL3R's Zombie Mod UO
+//Credits goes to KiLL3R.
+
+Emitter
+{
+	name				_emit_smoke
+
+	flags				emitFx relative
+
+	life				2e+004
+
+	variance			1 5
+
+	density				4
+
+	cullrange			3000
+
+	emitfx
+	[
+		fx/quake/rocket_trail2
+	]
+}

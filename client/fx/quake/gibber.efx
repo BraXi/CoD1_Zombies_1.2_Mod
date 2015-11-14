@@ -1,0 +1,302 @@
+/////////////////////////////////////////////////////////
+////|         |///|        |///|       |/\  \/////  /////
+////|  |////  |///|  |//|  |///|  |/|  |//\  \///  //////
+////|  |////  |///|  |//|  |///|  |/|  |///\  \/  ///////
+////|          |//|  |//|  |///|       |////\    ////////
+////|  |////|  |//|         |//|  |/|  |/////    \///////
+////|  |////|  |//|  |///|  |//|  |/|  |////  /\  \//////
+////|          |//|__|///|__|//|__|/|__|///  ///\  \/////
+//////////////////////////////////////////__/////\__\////
+/////////////////////////////////////////////////////////
+
+Particle
+{
+	flags				useAlpha
+
+	life				400
+
+	origin				8 0 0	//ZYX lol
+
+	rotation			360 -360
+
+	rotationDelta			2 -2
+
+	rgb
+	{
+		start			1 1 1
+		end			0.4 0.4 0.3 //0.9765 0.949 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		end			0
+		flags			linear
+	}
+
+	size
+	{
+		start			48 48
+		end			64 64
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/impact/bloodstain6
+		gfx/impact/bigsplat1
+		gfx/impact/bigsplat2
+		gfx/impact/bloodstain2
+	]
+}
+
+Emitter
+{
+	flags				usePhysics impactFX useModel
+	
+	spawnFlags			orgOnSphere axisfromCylinder
+
+	count				 1 
+	
+	bounce				0.6 //.3  .4
+
+	life				3600
+
+	angleDelta			0 0 0 -50 -50 -50
+	
+	rotation			360 -360
+	
+	rotationDelta			5 5 5
+
+	velocity			50 20 20 30 -20 -10
+
+	gravity				-350
+	
+	models
+	[
+ 		xmodel/chest
+		
+	]
+
+	size
+	{
+		start 	0.8
+	}
+
+
+	impactfx
+	[
+	 fx/impacts/bloodfx_lg	
+	 fx/impacts/bloodfx_giant
+	]
+}
+
+
+Emitter
+{
+	flags				usePhysics useModel
+	
+	spawnFlags			orgOnSphere axisfromCylinder
+
+	count				 1 
+	
+	bounce				0.4 
+
+	life				4000
+
+	origin				0 18 0
+
+	angleDelta			0 0 0 -50 -50 -50
+	
+	rotation			360 -360
+	
+	rotationDelta			5 5 5
+
+	velocity			50 20 20 30 -20 -10
+
+	gravity				-350
+	
+	models
+	[
+ 		xmodel/forearm
+		
+	]
+
+	size
+	{
+		start 	0.9
+
+	}
+}
+
+Emitter
+{
+	flags				usePhysics  useModel
+	
+	spawnFlags			orgOnSphere axisfromCylinder
+
+	count				 1 
+	
+	bounce				0.8 
+
+	life				5200
+
+	origin				0 8 0
+
+	angleDelta			0 0 0 -50 -50 -50
+	
+	rotation			360 -360
+	
+	rotationDelta			5 5 5
+
+	velocity			50 20 20 30 -20 -10
+
+	gravity				-350
+	
+	models
+	[
+ 		xmodel/arm
+		
+	]
+
+	size
+	{
+		start 	0.6
+		end	0.4
+
+	}
+
+}
+
+Emitter
+{
+	flags				usePhysics useModel
+	
+	spawnFlags			orgOnSphere axisfromCylinder
+
+	count				 1 
+	
+	bounce				0.9 
+
+	life				5100
+
+	origin				12 4 24
+
+	angleDelta			0 0 0 -50 -50 -50
+	
+	rotation			360 -360
+	
+	rotationDelta			5 5 5
+
+	velocity			50 20 20 30 -20 -10
+
+	gravity				-350
+	
+	models
+	[
+ 		xmodel/brain
+		
+	]
+
+	size
+	{
+		start 	0.8  //.6 .7
+		end	0.4
+
+	}
+
+}
+
+
+Emitter
+{
+	flags				usePhysics impactFX useModel
+	
+	spawnFlags			orgOnSphere axisfromCylinder
+
+	count				 1 
+	
+	bounce				0.7 
+
+	life				3600
+
+	origin				10 14 28 
+
+	angleDelta			0 0 0 -50 -50 -50
+	
+	rotation			360 -360
+	
+	rotationDelta			5 5 5
+
+	velocity			50 20 20 30 -20 -10
+
+	gravity				-350
+	
+	models
+	[
+ 		xmodel/abdomen
+		
+	]
+
+	size
+	{
+		start 	0.6  
+	}
+
+
+	impactfx
+	[
+	 fx/impacts/bloodfx_lg
+	]
+}
+
+Emitter
+{
+	flags				usePhysics impactFX useModel
+	
+	spawnFlags			orgOnSphere axisfromCylinder
+
+	count				 1 
+	
+	bounce				0.9 
+
+	life				3500
+
+	origin				10 14 28 
+
+	angleDelta			0 0 0 -50 -50 -50
+	
+	rotation			360 -360
+	
+	rotationDelta			5 5 5
+
+	velocity			50 20 20 30 -20 -10
+
+	gravity				-350
+	
+	models
+	[
+ 		xmodel/intestine
+		
+	]
+
+	size
+	{
+		start 	0.6  
+	}
+
+	impactfx
+	[
+	 fx/impacts/bloodfx_lg
+	]
+
+}
+
+
+Sound
+{
+	sounds
+	[
+		bodysplat
+	]
+}

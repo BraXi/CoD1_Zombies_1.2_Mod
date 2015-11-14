@@ -1,0 +1,70 @@
+Light
+{
+	flags				relative
+
+	life				35000
+
+	origin				0 0 35
+
+	rgb
+	{
+		start			1 1 1
+	}
+
+	size
+	{
+		start			512
+	}
+}
+
+Particle
+{
+	flags				relative
+
+	life				35000
+
+	origin				0 0 20
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.2
+		end				0
+	}
+
+	size
+	{
+		start			256
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+Emitter
+{
+	flags				useModel
+
+	count				1 
+
+	life				35000
+
+	origin				0 0 5
+
+	size
+	{
+		start 			1.0
+	}
+
+	models
+	[
+ 		xmodel/bx_flare
+	]
+
+}

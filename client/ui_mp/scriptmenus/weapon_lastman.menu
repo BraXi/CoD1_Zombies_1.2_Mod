@@ -1,0 +1,640 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_MENUWINDOW			96 72
+#define ORIGIN_SERVERNAME			106 92
+#define ORIGIN_GAMETYPE				430 156
+#define ORIGIN_SERVERSETTINGS			480 178
+#define ORIGIN_CLICKTOCONTINUE			534 374
+
+{
+	menuDef
+	{
+		name			"weapon_lastman"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor		0 0 0 0
+		style			WINDOW_STYLE_EMPTY
+		border			0
+		onEsc 
+		{
+			scriptMenuResponse "close";
+			close weapon_lastman;
+		}
+		onOpen 
+		{
+			scriptMenuResponse "open";
+			hide "machinegun_info";
+			hide "shotgun_info";
+			hide "rocketlauncher_info";
+			hide "plasmagun_info";
+			hide "railgun_info";
+			hide "mainmenu";
+			hide "changeteam";
+			hide "weapon";
+			hide "map";
+		}
+		onClose
+		{
+			scriptMenuResponse "close";
+
+			hide "machinegun_info";
+			hide "shotgun_info";
+			hide "rocketlauncher_info";
+			hide "plasmagun_info";
+			hide "railgun_info";
+			hide "mainmenu";
+			hide "changeteam";
+			hide "weapon";
+			hide "map";
+		}
+
+// WINDOW
+		itemDef 
+		{
+			name "video"
+			style WINDOW_STYLE_CINEMATIC
+			cinematic "zombie_mod_menus.roq"
+			rect -1 -1 642 482
+			backcolor 1 1 1 .25
+			border 1
+			bordersize 1	
+			bordercolor .1 .1 .1 1
+			decoration
+			visible 1
+		}
+
+// HEADER
+		itemDef 
+		{
+			rect 60 75 520 20
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			320 90
+			forecolor		1 1 1 1
+			text			"^2SELECT WEAPON"
+			textfont		UI_FONT_NORMAL
+			textalign		ITEM_ALIGN_CENTER
+			textscale		.24
+			decoration
+		}
+		
+
+// MENU CHOICES
+		itemDef
+		{
+			visible 		1
+			origin			21 129
+			forecolor		1 1 1 1
+			text			"^3WEAPONS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 130 180 95
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 135
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"1. Super Machinegun"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "super_machinegun_mp";
+				close weapon_lastman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				show "machinegun_info";
+				hide "shotgun_info";
+				hide "rocketlauncher_info";
+				hide "plasmagun_info";
+				hide "railgun_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "1" { play "mouse_click"; scriptMenuResponse "super_machinegun_mp"; close weapon_lastman }	
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 150
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"2. Quake Rocket Launcher"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "super_rocketlauncher_mp";
+				close weapon_lastman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "machinegun_info";
+				hide "shotgun_info";
+				show "rocketlauncher_info";
+				hide "plasmagun_info";
+				hide "railgun_info";
+
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "2" { play "mouse_click"; scriptMenuResponse "super_rocketlauncher_mp"; close weapon_lastman }	
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 165
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"3. Super Shotgun"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "super_shotgun_mp";
+				close weapon_lastman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "machinegun_info";
+				show "shotgun_info";
+				hide "rocketlauncher_info";
+				hide "plasmagun_info";
+				hide "railgun_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "3" { play "mouse_click"; scriptMenuResponse "super_shotgun_mp"; close weapon_lastman; }
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 180
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"4. Plasma Gun"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "super_plasmagun_mp";
+				close weapon_lastman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "machinegun_info";
+				hide "shotgun_info";
+				hide "rocketlauncher_info";
+				show "plasmagun_info";
+				hide "railgun_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "4" { play "mouse_click"; scriptMenuResponse "super_plasmagun_mp"; close weapon_lastman; }
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 195
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"5. Rail Gun"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "super_railgun_mp";
+				close weapon_lastman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "machinegun_info";
+				hide "shotgun_info";
+				hide "rocketlauncher_info";
+				hide "plasmagun_info";
+				show "railgun_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "5" { play "mouse_click"; scriptMenuResponse "super_railgun_mp"; close weapon_lastman; }
+
+// DESCRIPTION
+		itemDef
+		{
+			visible 		1
+			origin			618 239
+			forecolor		1 1 1 1
+			text			"^3DESCRIPTION"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 380 240 240 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"machinegun_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Good choice for the first time."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"shotgun_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Oh yee, got ya!"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"rocketlauncher_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Time to die in blast!"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"plasmagun_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2You will love it."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"railgun_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2One shot one kill."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+
+// OTHER MENUS
+		itemDef
+		{
+			visible 		1
+			origin			21 239
+			forecolor		1 1 1 1
+			text			"^3OTHER MENUS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 240 180 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+	
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 245
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> Main Menu"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				open main;
+				close weapon_lastman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "machinegun_info";
+				hide "shotgun_info";
+				hide "rocketlauncher_info";
+				hide "plasmagun_info";
+				hide "railgun_info";
+				show "mainmenu";
+				hide "changeteam";
+				hide "map";
+				hide "weapon";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 260
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> Change Team"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "team";
+				close weapon_lastman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "machinegun_info";
+				hide "shotgun_info";
+				hide "rocketlauncher_info";
+				hide "plasmagun_info";
+				hide "railgun_info";
+				hide "mainmenu";
+				show "changeteam";
+				hide "map";
+				hide "weapon";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 275
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> View map"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "viewmap";
+				close weapon_lastman;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "machinegun_info";
+				hide "shotgun_info";
+				hide "rocketlauncher_info";
+				hide "plasmagun_info";
+				hide "railgun_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "map";
+				hide "weapon";
+			}
+		}
+
+		itemDef
+		{
+			name			"mainmenu"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Return to the main menu."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"changeteam"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2You are Last Standing Hunter ^2don't ^2leave ^2team mates souls..."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"map"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2View current map image."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+// WEAPON IMAGE
+		itemDef
+		{
+			name			"weapon"
+			visible 		1
+			origin			618 129
+			forecolor		1 1 1 1
+			text			"^3WEAPON PREVIEW"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			name "weapon"
+			rect 380 130 240 95
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"machinegun_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@machinegun.dds"
+			decoration
+		}
+		itemDef
+		{
+			name			"rocketlauncher_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@rocketlauncher.dds"
+			decoration
+		}
+		itemDef
+		{
+			name			"shotgun_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@shotgun.dds"
+			decoration
+		}
+		itemDef
+		{
+			name			"plasmagun_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@plasmagun.dds"
+			decoration
+		}
+		itemDef
+		{
+			name			"railgun_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@railgun.dds"
+			decoration
+		}
+	}
+}

@@ -1,0 +1,509 @@
+#include "ui/menudef.h"
+
+{
+	assetGlobalDef 
+	{
+		consoleFont "fonts/consoleFont" 18		// font
+		smallFont "fonts/smallFont" 12			// font
+		font "fonts/normalFont" 16				// font
+		bigFont "fonts/bigFont" 24				// font
+		extraBigFont "fonts/extraBigFont" 32	// font
+		boldFont "fonts/boldFont" 30			// font
+
+		cursor "ui/assets/3_cursor3"			// cursor	
+//		gradientBar "ui/assets/gradientbar2.tga"	// gradient bar
+//		itemFocusSound "sound/misc/menu2.wav"	
+					// sound for item getting focus (via keyboard or mouse )
+
+		fadeClamp 1.0				// sets the fadeup alpha
+		fadeCycle 1					// how often fade happens in milliseconds
+		fadeAmount 0.1				// amount to adjust alpha per cycle
+		
+		shadowColor 0.1 0.1 0.1 0.25			// shadow color
+	}
+
+	menuDef 
+	{
+		name "main"				
+		fullScreen MENU_TRUE
+		rect 0 0 640 480				// Size and position of the menu
+		focusColor UI_FOCUS_COLOR			// Menu focus color for text and items
+		soundloop ""
+					
+		onOpen 
+		{ 
+			close mods_menu;
+			close options_multi;
+			play "music_mainmenu";
+			uiScript stopRefresh ;
+		}
+		
+		onESC 
+		{ 
+			close mods_menu;
+			close options_multi;
+			ingameclose main
+		}
+		#include "ui_mp/menu_background.menu"		
+		itemDef 
+		{
+			name resume
+			text "@MENU_BACKTOGAME"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 220 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			forecolor .9 .9 .9 .9
+			visible 1
+			textfont UI_FONT_NORMAL
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{ 
+				play "mouse_click";
+				ingameclose main;
+				close mods_menu;
+				close options_multi;
+				close main;
+
+			}
+			cvarTest "cl_ingame"
+			showCVar { "1" }
+		}
+		itemDef 
+		{
+			name play
+			text "@MENU_JOIN_GAME"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 220 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			forecolor .9 .9 .9 .9
+			backcolor 0 0 0 0
+			visible 1
+			textfont UI_FONT_NORMAL
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{ 
+				play "mouse_click";
+//				setcvar ui_netSource 0
+				close mods_menu;
+				close options_multi;
+				close main ; 
+//				open multi_menu;
+				open joinserver
+			}
+			cvarTest "cl_ingame"
+			showCVar { "0" }
+		}
+		itemDef 
+		{
+			name play
+			text "@MENU_DISCONNECT"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 250 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			forecolor .9 .9 .9 .9
+			backcolor 0 0 0 0
+			visible 1
+			textfont UI_FONT_NORMAL
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{ 
+				play "mouse_click";
+				close mods_menu;
+				close options_multi;
+				exec "disconnect";
+			}
+			cvarTest "cl_ingame"
+			showCVar { "1" }
+		}
+
+		itemDef 
+		{
+			name play
+			text "@MENU_START_NEW_SERVER"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 250 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			forecolor .9 .9 .9 .9
+			visible 1
+			textfont UI_FONT_NORMAL
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{ 
+				play "mouse_click";
+				close main;
+				close mods_menu;
+				close options_multi;
+//				open multi_menu;
+				open createserver;
+			}
+			cvarTest "cl_ingame"
+			showCVar { "0" }
+		}
+
+		itemDef 
+		{
+			name options
+			text "@MENU_MULTIPLAYER_OPTIONS"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY	
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 280 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			forecolor .9 .9 .9 .9
+			visible 1
+			textfont UI_FONT_NORMAL 
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{
+				play "mouse_click"; 
+
+				
+				close mods_menu;
+				open options_multi;
+			} 
+		}		
+		itemDef 
+		{
+			name options
+			text "@MENU_OPTIONS"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY	
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 310 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			forecolor .9 .9 .9 .9
+			visible 1
+			textfont UI_FONT_NORMAL 
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{
+				play "mouse_click"; 
+				close main;
+				close mods_menu;
+				close options_multi;
+				open options_menu;
+				open options_look;
+				 
+//				open control_menu;
+			} 
+		}
+		itemDef 
+		{
+			name options
+			text "@MENU_MODS"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY	
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 340 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			forecolor .9 .9 .9 .9
+			visible 1
+			textfont UI_FONT_NORMAL 
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{
+				play "mouse_click"; 
+				open mods_menu;
+				close options_multi;
+//				open options_menu;
+//				open options_look;
+//				close main; 
+//				open control_menu;
+			} 
+		}
+
+		itemDef 
+		{
+		      	name playselection
+		  	text "About Mod..."
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY	
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 370 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			textfont UI_FONT_NORMAL
+			forecolor .9 .9 .9 .9
+			visible 1  
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{
+				play "mouse_click";
+				close mods_menu;
+				close options_multi;
+				open single_popmenu;
+			}
+//			action { uiScript startMultiplayer }
+	    	}
+
+
+		itemDef 
+		{
+			name quit
+			text "@MENU_QUIT"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY	
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 400 250 15
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			textfont UI_FONT_NORMAL
+			forecolor .9 .9 .9 .9
+			visible 1 
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{
+				close mods_menu;
+				close options_multi;
+				play "mouse_click";
+				open quit_popmenu;
+			}
+		}	
+/*
+		itemDef 
+		{
+			name play
+			text "@MENU_AUTO_UPDATE"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_EMPTY
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			rect 15 400 250 15 
+			textalign 0
+			textscale .4		
+			textalignx 0
+			textaligny 14
+			forecolor .9 .9 .9 .9
+			visible 1
+			textfont UI_FONT_NORMAL
+			mouseEnter 
+			{
+				play "mouse_over";
+			}
+			action 
+			{ 
+				play "mouse_click"; 
+				close mods_menu; 
+				close options_multi; 
+				open auconfirm 
+			}	
+
+			cvarTest "cl_updateavailable"
+			showCVar { "1" }
+		}
+*/
+}
+
+	menuDef 
+	{
+		name "single_popmenu"
+   		fullscreen 0
+		//rect 217 200 210 85
+		rect 204 160 235 170
+		focusColor UI_FOCUS_COLOR
+		style 1
+		border 1
+		popup
+		onESC { close single_popmenu ; open main }
+	
+		itemDef 
+		{
+			name window
+			group grpControlbutton
+			rect 0 2 235 135
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor 0 0 0 .5
+			visible 1
+			decoration
+		}
+			/*
+		itemDef 
+		{
+			name backimage2fade
+			style WINDOW_STYLE_SHADER
+			rect -206 -162 642 482
+	 		background "ui/assets/fadebox.tga"
+			forecolor 0 0 0 0.4
+			backcolor 0 0 0 0.4
+			visible 1
+			decoration
+		}*/
+		itemDef 
+		{
+			name window2
+			group grpControlbutton
+			rect 2 4 231 20	
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .1 .1 .1 .2
+			forecolor 1 1 1 1
+			backcolor 1 1 .3 .3
+			visible 1
+			decoration
+		}
+
+		itemDef 
+		{
+			name confirm
+			text "^2BraXi's ^1Zombie Mod" 
+			style 0
+			textscale .25 
+			textstyle 3
+			rect 116 20 110 20
+			textalign 1
+			textalignx 0
+			textaligny 0
+			decoration
+			forecolor 1 1 1 1
+			visible 1
+		}
+		itemDef 
+		{
+			text "^7Mod by ^2BraXi" 
+			style 0
+			textscale .22
+			textstyle 3
+			rect 116 40 110 20
+			textalign 1
+			textalignx 0
+			textaligny 0
+			decoration
+			forecolor 1 1 1 1
+			visible 1
+		}
+
+		itemDef 
+		{
+			text "^1GitHub^7: ^2github.com/BraXi" 
+			style 0
+			textscale .22
+			textstyle 3
+			rect 116 55 110 20
+			textalign 1
+			textalignx 0
+			textaligny 0
+			decoration
+			forecolor 1 1 1 1
+			visible 1
+		}
+		itemDef 
+		{
+			text "^1Website^7: ^2www.braxi.net" 
+			style 0
+			textscale .22
+			textstyle 3
+			rect 116 70 110 20
+			textalign 1
+			textalignx 0
+			textaligny 0
+			decoration
+			forecolor 1 1 1 1
+			visible 1
+		}
+
+		itemDef 
+		{
+			text "Mod Version: ^31.2" 
+			style 0
+			textscale .22
+			textstyle 3
+			rect 116 100 110 20
+			textalign 1
+			textalignx 0
+			textaligny 0
+			decoration
+			forecolor 1 1 1 1
+			visible 1
+		}
+
+		itemDef 
+		{
+			text "Read 'ReadMe.txt' file for more informations." 
+			style 0
+			textscale .22
+			textstyle 3
+			rect 116 130 110 20
+			textalign 1
+			textalignx 0
+			textaligny 0
+			decoration
+			forecolor 1 1 1 1
+			visible 1
+		}
+			/*
+		itemDef
+		{
+			type 1
+			rect 5 100 0 0
+			visible 1
+			text "Read 'ReadMe.txt' file for more informations."
+			decoration
+			textscale .26
+			textalign ITEM_ALIGN_LEFT
+			textalignx 0
+			textaligny 0
+		}*/
+	}
+}

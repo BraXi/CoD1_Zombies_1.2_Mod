@@ -1,0 +1,641 @@
+#include "ui_mp/menudef.h"
+
+{
+	menuDef
+	{
+		name			"weapon_zombie"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor		0 0 0 0
+		style			WINDOW_STYLE_EMPTY
+		border			0
+		onEsc 
+		{
+			scriptMenuResponse "close";
+			close weapon_zombie;
+		}
+		onOpen 
+		{
+			scriptMenuResponse "open";
+			hide "knife_info";
+			hide "pknife_info";
+			hide "wood_info";
+			hide "bottle_info";
+			hide "punch_info";
+			hide "mainmenu";
+			hide "changeteam";
+			hide "weapon";
+			hide "map";
+		}
+		onClose
+		{
+			scriptMenuResponse "close";
+
+			hide "knife_info";
+			hide "pknife_info";
+			hide "wood_info";
+			hide "bottle_info";
+			hide "punch_info";
+			hide "mainmenu";
+			hide "changeteam";
+			hide "weapon";
+			hide "map";
+		}
+
+// WINDOW
+		itemDef 
+		{
+			name "video"
+			style WINDOW_STYLE_CINEMATIC
+			cinematic "zombie.roq"
+			rect -1 -1 642 482
+			backcolor 1 1 1 .25
+			border 1
+			bordersize 1	
+			bordercolor .1 .1 .1 1
+			decoration
+			visible 1
+		}
+
+// HEADER
+		itemDef 
+		{
+			rect 60 75 520 20
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			320 90
+			forecolor		1 1 1 1
+			text			"^2SELECT WEAPON"
+			textfont		UI_FONT_NORMAL
+			textalign		ITEM_ALIGN_CENTER
+			textscale		.24
+			decoration
+		}
+		
+
+// MENU CHOICES
+		itemDef
+		{
+			visible 		1
+			origin			21 129
+			forecolor		1 1 1 1
+			text			"^3WEAPONS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 130 180 95
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 135
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^11. Knife"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "knife_mp";
+				close weapon_zombie;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				show "knife_info";
+				hide "pknife_info";
+				hide "wood_info";
+				hide "bottle_info";
+				hide "punch_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "1" { play "mouse_click"; scriptMenuResponse "knife_mp"; close weapon_zombie }	
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 150
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^12. Parabolic Knife"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "parabolic_knife_mp";
+				close weapon_zombie;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "knife_info";
+				show "pknife_info";
+				hide "wood_info";
+				hide "bottle_info";
+				hide "punch_info";
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "2" { play "mouse_click"; scriptMenuResponse "parabolic_knife_mp"; close weapon_zombie }	
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 165
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^13. Wood Plank"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "wood_mp";
+				close weapon_zombie;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "knife_info";
+				hide "pknife_info";
+				show "wood_info";
+				hide "bottle_info";
+				hide "punch_info";
+
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "3" { play "mouse_click"; scriptMenuResponse "wood_mp"; close weapon_zombie; }
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 180
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^14. Bottle"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "bottle_mp";
+				close weapon_zombie;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "knife_info";
+				hide "pknife_info";
+				hide "wood_info";
+				show "bottle_info";
+				hide "punch_info";
+
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "4" { play "mouse_click"; scriptMenuResponse "bottle_mp"; close weapon_zombie; }
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 195
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^15. Punch"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "punch_mp";
+				close weapon_zombie;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "knife_info";
+				hide "pknife_info";
+				hide "wood_info";
+				hide "bottle_info";
+				show "punch_info";
+
+				hide "mainmenu";
+				hide "changeteam";
+				show "weapon";
+				hide "map";
+			}
+		}
+		execKey "5" { play "mouse_click"; scriptMenuResponse "punch_mp"; close weapon_zombie; }
+
+// DESCRIPTION
+		itemDef
+		{		
+			visible 		1
+			origin			618 239
+			forecolor		1 1 1 1
+			text			"^3DESCRIPTION"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 380 240 240 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"knife_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"You can cut someone's body into 2 pieces with this great and bloody knife."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"pknife_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"Run really fast and eat someone after three hits."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"wood_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"Amazing power, slow movement speed."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"bottle_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"Run very fast with lame bottle and kill someone with 4-5 hits. Braaainss!"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"punch_info"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"There is nothing to say..."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+
+// OTHER MENUS
+		itemDef
+		{
+			visible 		1
+			origin			21 239
+			forecolor		1 1 1 1
+			text			"^3OTHER MENUS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 240 180 110
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+	
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 245
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> Main Menu"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				open main;
+				close weapon_zombie;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "knife_info";
+				hide "pknife_info";
+				hide "wood_info";
+				hide "bottle_info";
+				hide "punch_info";
+
+
+				show "mainmenu";
+				hide "changeteam";
+				hide "map";
+				hide "weapon";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 260
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> Change Team"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "team";
+				close weapon_zombie;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "knife_info";
+				hide "pknife_info";
+				hide "wood_info";
+				hide "bottle_info";
+				hide "punch_info";
+
+				hide "mainmenu";
+				hide "weapon";
+				show "changeteam";
+				hide "map";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 275
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^3-> View map"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+			action
+			{
+				play "mouse_click";
+				scriptMenuResponse "viewmap";
+				close weapon_zombie;
+			}
+			onFocus
+			{
+				play "mouse_over";
+				hide "knife_info";
+				hide "pknife_info";
+				hide "wood_info";
+				hide "bottle_info";
+				hide "punch_info";
+
+				hide "mainmenu";
+				hide "changeteam";
+				hide "weapon";
+				show "map";
+			}
+		}
+
+		itemDef
+		{
+			name			"mainmenu"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Return to the main menu."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"changeteam"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2Change team."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"map"
+			visible			1
+			rect			490 247 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"^2View current map image."
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+// WEAPON IMAGE
+		itemDef
+		{
+			name			"weapon"
+			visible 		1
+			origin			618 129
+			forecolor		1 1 1 1
+			text			"^3WEAPON PREVIEW"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			name "weapon"
+			rect 380 130 240 95
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"knife_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@knife.dds"
+			decoration
+		}
+		itemDef
+		{
+			name			"pknife_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@knife.dds"
+			decoration
+		}
+		itemDef
+		{
+			name			"wood_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@zomwood.dds"
+			decoration
+		}
+		itemDef
+		{
+			name			"bottle_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/hud@blood_01.tga"
+			decoration
+		}
+		itemDef
+		{
+			name			"punch_info"
+			visible 		0
+			rect			380 130 240 95
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/death_melee.tga"
+			decoration
+		}
+	}
+}

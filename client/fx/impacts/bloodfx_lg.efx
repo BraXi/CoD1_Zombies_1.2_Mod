@@ -1,0 +1,51 @@
+//   ____  _                 _ ________   __                   
+//  |  _ \| |               | |  ____\ \ / /                   
+//  | |_) | | ___   ___   __| | |__   \ \ /                    
+//  |  _ <| |/ _ \ / _ \ / _` |  __|   \ \                     
+//  | |_) | | (_) | (_) | (_| | |     / \ \                    
+//  |____/|_|\___/ \___/ \__,_|_|    /_/ \_\
+//  
+//  A Merciless Creation by Chris_P
+//  www.mercilesscreations.com
+//
+//////////////////////////////////////////////////////////
+
+Sound
+{
+	sounds
+	[
+		squirt
+	]
+}
+
+//OrientedParticle
+Decal
+{
+		
+	life				120000
+
+	rotation			-360 360	
+
+	rgb
+	{
+		start			.5 .5 .5
+
+	}
+	
+	alpha
+	{
+		start			1
+		end			0
+	}
+	size
+	{
+		start			11 13		
+	}	
+	
+	shaders
+	[
+		gfx/impact/bloodstain_lg_3
+		gfx/impact/bloodstain_lg_1
+		gfx/impact/bloodstain_lg_2
+	]
+}

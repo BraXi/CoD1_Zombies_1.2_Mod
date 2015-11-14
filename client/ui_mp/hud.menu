@@ -1,0 +1,213 @@
+#include "ui_mp/menudef.h"
+
+{
+	assetGlobalDef 
+	{
+		cursor "ui/assets/3_cursor3"	// cursor	
+		gradientBar "ui/assets/gradientbar2.tga"	// gradient bar
+		fadeClamp 1.0					// sets the fadeup alpha
+		fadeCycle 1						// how often fade happens in milliseconds
+		fadeAmount 0.1					// amount to adjust alpha per cycle
+
+		shadowX  5						// x amount for shadow offset
+		shadowY  5						// y amount for shadow offset
+		shadowColor 0.1 0.1 0.1 0.25	// shadow color
+
+		consoleFont "fonts/consoleFont" 18		// font
+		smallFont "fonts/smallFont" 12			// font
+		font "fonts/normalFont" 16				// font
+		bigFont "fonts/bigFont" 24				// font
+		extraBigFont "fonts/extraBigFont" 32	// font
+		boldFont "fonts/boldFont" 30			// font
+	}
+
+	//	CURSOR HINTS
+	menuDef 
+	{
+    	name "Cursorhints"
+    	fullScreen MENU_FALSE
+    	visible MENU_TRUE
+    	rect 300 325 40 40 // 480,520,64x64
+
+		itemDef 
+		{
+			name "chRect"
+			decoration
+			visible MENU_TRUE
+			rect 0 0 40 40 // 64x64
+			textscale .21
+			textstyle ITEM_TEXTSTYLE_SHADOWEDMORE
+			ownerdraw CG_CURSORHINT
+		}
+	}
+
+	//	STANCE
+	menuDef 
+	{
+    	name "stance"
+    	fullScreen MENU_FALSE
+    	visible MENU_TRUE
+		rect 8 415 40 40 // 160,695,64x64
+
+		itemDef 
+		{
+			name "chRect"
+			decoration
+			visible MENU_TRUE
+			rect 0 0 40 40 // 64x64
+			forecolor 1.0 1.0 1.0 1.0
+			textscale .21
+//			textstyle ITEM_TEXTSTYLE_SHADOWEDMORE
+			ownerdraw CG_PLAYER_STANCE
+		}
+	}
+
+	// HEALTH BAR
+	menuDef
+	{
+		name "Health"
+		fullScreen MENU_FALSE
+		visible MENU_TRUE
+		rect 8 460 0 0 // Lower left corner
+
+		itemDef 
+		{
+			rect -3 -2 173 14.5
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name "healthbar"
+			rect 14 1 128 10
+			forecolor 0.7 0.4 0.0 1.0
+			background "gfx/hud/hud@health_bar.tga"
+			ownerdraw CG_PLAYER_BAR_HEALTH
+			visible MENU_TRUE
+			decoration
+		}
+		itemDef
+		{
+			name "healthbarcross"
+			rect 0 0 12 12
+			forecolor 1.0 1.0 1.0 1.0
+			background "gfx/hud/hud@health_cross.tga"
+			ownerdraw CG_DRAW_SHADER
+			visible MENU_TRUE
+			decoration
+		}
+	}
+
+
+
+	menuDef
+	{
+		name "Compass"
+    	fullScreen MENU_FALSE
+    	visible MENU_TRUE
+    	rect 0 0 640 480
+
+/*		itemDef 
+		{
+			rect 160 300 320 140
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}*/
+		itemDef
+		{
+			name			"helptext"
+			visible			1
+			origin			320 300
+			cvar			"ui_helptext"
+			textfont		UI_FONT_NORMAL
+			textscale		.25
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 540 375 90 96
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef	//37.5x 40y
+		{
+			visible 		1
+			rect			577.5 421 16 16
+	 		style			WINDOW_STYLE_SHADER
+			background		"gfx/hud/ping_player.dds"
+			decoration
+		}
+
+    	itemDef // Objective pointers
+    	{
+			name "compasspointers"
+			decoration
+			visible MENU_TRUE
+			rect 540 375 90 96
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_PLAYER_COMPASS_POINTERS
+    	}
+
+		itemDef // Friendlies pointers
+		{
+			name "compassfrieldlies"
+			visible MENU_TRUE
+			rect 540 375 90 96
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_PLAYER_COMPASS_FRIENDS
+		}
+
+	}
+
+	// WEAPON INFO
+	menuDef
+	{
+		name "weaponinfo"
+		fullScreen MENU_FALSE
+		visible MENU_TRUE
+		rect 0 0 640 480
+
+		itemDef
+		{
+			name "ammocounterback"
+			rect 50 415 96 40
+			forecolor 1.0 1.0 1.0 1.0
+			background "gfx/hud/hud@ammocounterback.tga"
+			ownerdraw CG_PLAYER_AMMO_BACKDROP
+			visible MENU_TRUE
+			decoration
+		}
+		// ammo text
+		itemDef 
+		{
+ 			name "ammotex"
+			rect 70 439.25 55 40
+			textstyle ITEM_TEXTSTYLE_SHADOWED
+			textscale .21
+			forecolor 1.0 1.0 1.0 1.0
+			ownerdraw CG_PLAYER_AMMO_VALUE
+			visible MENU_TRUE
+			decoration
+		}
+	}
+}

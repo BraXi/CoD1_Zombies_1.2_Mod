@@ -1,0 +1,59 @@
+Tail
+{
+	flags				usePhysics impactFx deathFx
+
+	spawnFlags			orgOnCylinder
+
+	count				128
+
+	life				3000
+
+	cullrange			1000
+
+	origin				1200 0 0
+
+	radius				1000 30
+
+	velocity			-2000 0 0 -1900 0 0
+
+	rgb
+	{
+		flags			random linear
+	}
+
+	alpha
+	{
+		start			0.5
+		end				0.1 0
+		flags			linear
+	}
+
+	size
+	{
+		start			3
+		end				2
+		flags			linear
+	}
+
+	length
+	{
+		start			102
+		end				400
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/raindroplett
+	]
+
+	impactfx
+	[
+		fx/atmosphere/rainsplash
+	]
+
+	deathfx
+	[
+		fx/atmosphere/rainsplash
+	]
+}

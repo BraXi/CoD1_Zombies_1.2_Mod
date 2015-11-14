@@ -1,0 +1,60 @@
+//This script is from KiLL3R's Zombie Mod UO
+//Credits goes to KiLL3R.
+
+Particle
+{
+	name				smoke_mist
+
+	flags				setShaderTime useAlpha relative
+
+	spawnFlags			evenDistribution rgbComponentInterpolation //affectedByWind
+
+	life				100 150
+
+	delay				0 100
+
+	cullrange			5000
+
+	radius				60 50
+
+	//wind				95 100
+
+	rotation			0 360
+
+	rotationDelta		-15 15
+
+	velocity			-12 -12 -12 12 12 12
+
+	acceleration		-12 -12 -12 12 12 12
+
+	gravity				5 25
+
+	rgb
+	{
+		start			1 1 1
+		end			1 1 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			1
+		end				0
+		parm			0.15 0.25
+		flags			linear
+	}
+
+	size
+	{
+		start			15
+		end			30 40
+		flags			random linear
+	}
+
+	shaders
+	[
+//		plasma_ball1
+//		plasma_ball2
+		plasma_ball3
+	]
+}

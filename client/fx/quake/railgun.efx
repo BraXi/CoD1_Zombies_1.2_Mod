@@ -1,0 +1,45 @@
+//FX by NovemberDobby
+
+line
+{
+	flags				setShaderTime 
+
+	life				1000
+
+	cullrange			30000
+
+	origin				0 0 0
+	
+	origin2				2048 0 0 //12000 0 0
+
+	rgb
+	{
+		start			1 1 1
+		end			1 1 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			1
+		end			0
+		flags			linear
+	}
+
+	size
+	{
+		start			20
+		end			0
+		flags			linear
+	}
+
+	length
+	{
+		start			200
+	}
+
+	shaders
+	[
+		gfx/railgun
+	]
+}

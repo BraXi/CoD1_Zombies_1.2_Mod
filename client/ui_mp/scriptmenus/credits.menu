@@ -1,0 +1,475 @@
+#include "ui_mp/menudef.h"
+
+
+{
+	menuDef
+	{
+		name			"credits"
+		fullscreen		0
+		rect			0 0 640 480
+		focuscolor		1 1 1 1
+		disablecolor		0 0 0 0
+		style			WINDOW_STYLE_EMPTY
+		border			0
+		onEsc 
+		{
+			scriptMenuResponse "close";
+			close credits;
+		}
+		onOpen 
+		{
+			scriptMenuResponse "open";
+			show "brax_info";
+			hide "kill3r_info";
+			hide "awe_creators_info";
+			hide "chris_p_info";
+			hide "bloodlust67_info";
+			hide "jfdhsc_info";
+			hide "l33t_info";
+			hide "others_info";
+		}
+		onClose
+		{
+			scriptMenuResponse "close";
+			hide "brax_info";
+			hide "kill3r_info";
+			hide "awe_creators_info";
+			hide "chris_p_info";
+			hide "bloodlust67_info";
+			hide "jfdhsc_info";
+			hide "l33t_info";
+			hide "others_info";
+		}
+
+// WINDOW
+		itemDef 
+		{
+			name "video"
+			style WINDOW_STYLE_CINEMATIC
+			cinematic "zombie_mod_menus.roq"
+			rect -1 -1 642 482
+			backcolor 1 1 1 .25
+			border 1
+			bordersize 1	
+			bordercolor .1 .1 .1 1
+			decoration
+			visible 1
+		}
+
+// HEADER
+		itemDef 
+		{
+			rect 60 75 520 20
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			visible			1
+			origin			320 90
+			forecolor		1 1 1 1
+			text			"^2CREDITS"
+			textfont		UI_FONT_NORMAL
+			textalign		ITEM_ALIGN_CENTER
+			textscale		.24
+			decoration
+		}
+		
+
+		itemDef
+		{
+			visible 		1
+			origin			21 129
+			forecolor		1 1 1 1
+			text			"^3GUYS"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_LEFT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 20 130 180 125
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 135
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2BraXi"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+
+			onFocus
+			{
+				play "mouse_over";
+				show "brax_info";
+				hide "kill3r_info";
+				hide "awe_creators_info";
+				hide "chris_p_info";
+				hide "bloodlust67_info";
+				hide "jfdhsc_info";
+				hide "l33t_info";
+				hide "others_info";
+			}
+		}
+		
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 150
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2KiLL3R"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+
+			onFocus
+			{
+				play "mouse_over";
+				hide "brax_info";
+				show "kill3r_info";
+				hide "awe_creators_info";
+				hide "chris_p_info";
+				hide "bloodlust67_info";
+				hide "jfdhsc_info";
+				hide "l33t_info";
+				hide "others_info";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 165
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2AWE Creators"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+
+			onFocus
+			{
+				play "mouse_over";
+				hide "brax_info";
+				hide "kill3r_info";
+				show "awe_creators_info";
+				hide "chris_p_info";
+				hide "bloodlust67_info";
+				hide "jfdhsc_info";
+				hide "l33t_info";
+				hide "others_info";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 180
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2Chris_P"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+
+			onFocus
+			{
+				play "mouse_over";
+				hide "brax_info";
+				hide "kill3r_info";
+				hide "awe_creators_info";
+				show "chris_p_info";
+				hide "bloodlust67_info";
+				hide "jfdhsc_info";
+				hide "l33t_info";
+				hide "others_info";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 195
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2BloodLust 67"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+
+			onFocus
+			{
+				play "mouse_over";
+				hide "brax_info";
+				hide "kill3r_info";
+				hide "awe_creators_info";
+				hide "chris_p_info";
+				show "bloodlust67_info";
+				hide "jfdhsc_info";
+				hide "l33t_info";
+				hide "others_info";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 210
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2JFDHSC"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+
+			onFocus
+			{
+				play "mouse_over";
+				hide "brax_info";
+				hide "kill3r_info";
+				hide "awe_creators_info";
+				hide "chris_p_info";
+				hide "bloodlust67_info";
+				show "jfdhsc_info";
+				hide "l33t_info";
+				hide "others_info";
+			}
+		}
+
+		itemDef 
+		{
+			visible			1
+			rect			0 0 120 15
+			origin			40 225
+			forecolor		1 1 1 1
+			type			ITEM_TYPE_BUTTON
+			text			"^2L33T"
+			textfont		UI_FONT_NORMAL
+			textscale		.26
+			textalignx		8
+			textaligny		16
+
+			onFocus
+			{
+				play "mouse_over";
+				hide "brax_info";
+				hide "kill3r_info";
+				hide "awe_creators_info";
+				hide "chris_p_info";
+				hide "bloodlust67_info";
+				hide "jfdhsc_info";
+				show "l33t_info";
+				hide "others_info";
+			}
+		}
+
+// INFO
+		itemDef
+		{
+			visible 		1
+			origin			618 129
+			forecolor		1 1 1 1
+			text			"^3INFO"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalign		ITEM_ALIGN_RIGHT
+			decoration
+		}
+
+		itemDef 
+		{
+			rect 380 130 240 125
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			name			"brax_info"
+			visible			1
+			rect			490 137 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"BraXi made this mod (and much more mods). He spent days to make this mod awesome, don't use his stuff without asking him.\n\nGitHub: github.com/braxi\nWeb: www.braxi.net"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"kill3r_info"
+			visible			1
+			rect			490 137 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"Letting me to use some of his own ideas.\n\nXfire: kill3rzor / zak4000\nWeb: www.kill3rcreations.com"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"awe_creators_info"
+			visible			1
+			rect			490 137 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"Guys like Bell, Hammer and Number 7 wrote map voting system and searchable bodies.\n\nNumber 7's Web: www.aigaming.net"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"chris_p_info"
+			visible			1
+			rect			490 137 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"For awesome blood effects from 'Merciless Mod'.\n\nWeb: www.mercilesscreations.com"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"bloodlust67_info"
+			visible			1
+			rect			490 137 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"Zombie skins were made by Him."
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"jfdhsc_info"
+			visible			1
+			rect			490 137 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"For knife model from his 'CoDUO Knife Mod'."
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+		itemDef
+		{
+			name			"l33t_info"
+			visible			1
+			rect			490 137 240 100
+			forecolor		1 1 1 1
+			autowrapped
+			text			"Searching for useable sounds.\n\nXfire: y2k7"
+			textfont		UI_FONT_NORMAL
+			textscale		.24
+			textalignx		8
+			textaligny		16
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+
+// CLICK TO EXIT
+		itemDef
+		{
+			visible 		1
+			rect			0 0 640 480
+			type 			ITEM_TYPE_BUTTON
+			action
+			{
+				scriptMenuResponse "close";
+				open team_hunters_zombies;
+				close credits;
+			}
+		}
+		
+
+		itemDef 
+		{
+			rect 240 383 160 20
+			style WINDOW_STYLE_FILLED
+			border 1
+			bordercolor .5 .5 .5 .5
+			forecolor 1 1 1 1
+			backcolor OPTIONS_WINDOW_BACKCOLOR
+			visible 1
+			decoration
+		}
+
+		itemDef
+		{
+			visible 		1
+			origin			320 400
+			forecolor		1 1 1 1
+			text			"^3CLICK TO EXIT"
+			textfont		UI_FONT_NORMAL
+			textscale		.29
+			textalign		ITEM_ALIGN_CENTER
+			decoration
+		}
+	}
+}

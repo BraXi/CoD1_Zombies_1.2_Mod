@@ -1,0 +1,17 @@
+{
+	surfaceparm metal
+	nomipmaps
+	nopicmip
+	{
+		map skins/maps/bxmodel.jpg
+		tcgen environment
+		rgbgen lightingdiffuse
+		//alphaGen const .25
+		 
+	}
+
+	{
+		map $texturename
+		blendFunc filter
+	}
+}

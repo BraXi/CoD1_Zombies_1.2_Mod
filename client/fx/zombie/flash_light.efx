@@ -1,0 +1,274 @@
+Light
+{
+	flags				relative
+
+	life				1000
+
+	origin				65 0 20
+
+	rgb
+	{
+		start			0.7039 0.7 0.5863
+	}
+
+	size
+	{
+		start			150
+	}
+}
+
+Particle
+{
+	name				p1
+
+	flags				relative
+
+	life				1000
+
+	origin				5 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.2
+		end				0
+	}
+
+	size
+	{
+		start			10
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+Particle
+{
+	name				p2
+
+	flags				relative
+
+	life				1000
+
+	origin				10 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.19
+		end				0
+	}
+
+	size
+	{
+		start			12
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+Particle
+{
+	name				p3
+
+	flags				relative
+
+	life				1000
+
+	origin				16 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.18
+		end				0
+	}
+
+	size
+	{
+		start			14
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+Particle
+{
+	name				p4
+
+	flags				relative
+
+	life				1000
+
+	origin				23 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.17
+		end				0
+	}
+
+	size
+	{
+		start			16
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+Particle
+{
+	name				p5
+
+	flags				relative
+
+	life				1000
+
+	origin				31 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.16
+		end				0
+	}
+
+	size
+	{
+		start			18
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+Particle
+{
+	name				p6
+
+	flags				relative
+
+	life				1000
+
+	origin				40 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.15
+		end				0
+	}
+
+	size
+	{
+		start			22
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+Particle
+{
+	name				p7
+
+	flags				relative
+
+	life				1000
+
+	origin				51 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.14
+		end				0
+	}
+
+	size
+	{
+		start			24
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+Particle
+{
+	name				p8
+
+	flags				relative
+
+	life				1000
+
+	origin				63 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.13
+		end				0
+	}
+
+	size
+	{
+		start			28
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}

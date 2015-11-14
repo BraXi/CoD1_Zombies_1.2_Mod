@@ -1,0 +1,18 @@
+Light
+{
+	flags				relative
+
+	life				1000
+
+	origin				0 0 0
+
+	rgb
+	{
+		start			0 0.66 0
+	}
+
+	size
+	{
+		start			128
+	}
+}

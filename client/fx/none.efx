@@ -1,0 +1,16 @@
+Light
+{
+	life				4
+
+	rgb
+	{
+		end			0.9765 0.949 0.651
+		flags			linear
+	}
+
+	size
+	{
+		start			48
+		flags			linear
+	}
+}

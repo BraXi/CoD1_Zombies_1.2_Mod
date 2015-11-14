@@ -1,0 +1,33 @@
+Emitter
+{
+	flags				useModel
+	
+	count				1 
+
+	life				1000
+
+	origin				0 0 0
+
+	angles				0 90 0
+	
+	size
+	{
+		start 			1.0
+		end				0.3
+		flags			linear
+	}
+
+	models
+	[
+ 		xmodel/bx_dbubble
+	]
+
+}
+
+sound
+{
+	sounds
+	[
+		bubble_create
+	]
+}

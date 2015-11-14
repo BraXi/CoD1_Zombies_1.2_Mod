@@ -1,0 +1,58 @@
+Light
+{
+	flags				relative
+
+	life				1000
+
+	origin				0 0 0
+
+	rgb
+	{
+		start			0.7039 0.7 0.5863
+	}
+
+	size
+	{
+		start			10000
+		end				1000
+	}
+}
+
+Particle
+{
+	flags				relative
+
+	life				1000
+
+	origin				0 0 0
+
+	rgb
+	{
+		start			0.9922 1 0.8078
+	}
+
+	alpha
+	{
+		start			0.2
+		end				0
+	}
+
+	size
+	{
+		start			10000
+		end				2000
+	}
+
+	shaders
+	[
+		brax/light_sphere
+	]
+}
+
+sound
+{
+	sounds
+	[
+		zom_thunder
+	]
+}
